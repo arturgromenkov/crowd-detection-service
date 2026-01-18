@@ -4,5 +4,5 @@ from models.yolov11n_detector import YOLOV11NPersonDetector
 
 if MODEL == 'yolov26n':
     detector = YOLOV26NPersonDetector()
-elif MODEL == 'yolov11n.onnx':
-    detector = YOLOv11PersonDetector()
+elif MODEL == 'yolov11n':
+    detector = YOLOV11NPersonDetector()

@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    container_name: crowd-detection-service
+    ports:
+      - "${API_PORT:-8111}:8080"
+    environment:
+      - API_HOST=${API_HOST:-0.0.0.0}
+      - API_PORT=8080
+      - MODEL=${MODEL:-yolov26n}
+      - YOLOV26N_CONFIDENCE=${YOLOV26N_CONFIDENCE:-0.25}
+      - YOLOV11N_CONFIDENCE=${YOLOV11N_CONFIDENCE:-0}
+      - PYTHONDONTWRITEBYTECODE=1
+      - PYTHONUNBUFFERED=1
+    env_file:
+      - .env
+    working_dir: /app
+    restart: unless-stopped
