@@ -3,11 +3,12 @@ import numpy as np
 import onnxruntime as ort
 from typing import List, Tuple, Optional
 from models.base_detector import BaseDetector
+from settings import YOLOV26N_CONFIDENCE
 
 class YOLOV26NPersonDetector(BaseDetector):
     def __init__(self):
-        self.model_path = "src/models/weights/yolo26n.onnx"
-        self.conf_threshold = 0.2
+        self.model_path = "src/models/weights/yolov26n.onnx"
+        self.conf_threshold = YOLOV26N_CONFIDENCE
         self.session = None
         self.input_name = None
         self.output_name = None
